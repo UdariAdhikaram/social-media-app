@@ -1,15 +1,16 @@
 import "./post.css"
-import {MoreVert} from "@mui/icons-material"
+import {MoreVert} from "@mui/icons-material";
+import {Users} from "../../dummyData";
 
 export default function Post({post}) {
-    console.log(post);
+    
   return (
     <div className="post">
         <div className="postWrapper">
             <div className="postTop">
                 <div className="postTopLeft">
-                    <img className="postProfileImg" src="/assets/feed1.jpg" alt=""/>
-                    <span className="postUsername">Daisy Audrey</span>
+                    <img className="postProfileImg" src={Users.filter((u)=> u.id === post.userId)[0].profilePicture} alt=""/>
+                    <span className="postUsername">{Users.filter((u)=> u.id === post.userId)[0].username}</span>
                     <span className="postDate">{post.date}</span>
                 </div>
                 <div className="postTopRight">
