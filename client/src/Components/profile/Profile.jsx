@@ -1,6 +1,6 @@
 import "./profile.css"
 import Feed from "../../Components/feed/Feed";
-//import Rightbar from "../../Components/rightbar/Rightbar";
+import Rightbar from "../../Components/rightbar/Rightbar";
 import Sidebar from "../../Components/sidebar/Sidebar";
 import Topbar from "../../Components/topbar/Topbar";
 
