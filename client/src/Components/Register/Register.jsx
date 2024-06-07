@@ -39,29 +39,9 @@ export default function Register() {
                             placeholder="Confirm Password"
                             className="registerInput"
                         />
-                        <div className="nameContainer">
-                            <div className="fnameLeft">
-                                <input
-                                    placeholder="First name"
-                                    className="registerInput"
-                                    
-                                />
-                            </div>
-                            <div className="lnameRight">
-                                <input
-                                    placeholder="Last name"
-                                    className="registerInput"
-                                    
-                                />
-                            </div>
-                        </div>
-                        <input
-                            type="text"
-                            placeholder="Date of Birth"
-                        />
                         <button className="registerButton">Sign Up</button>
                         <br/>
-                        Already have an account ?
+                        <span className='logRegister'>Already have an account ?</span>
                         <button className="logRegisterButton">Log in</button>
                     </form>
                 </div>
