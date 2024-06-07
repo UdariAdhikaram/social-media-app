@@ -76,6 +76,10 @@
     cursor: pointer;
 }
 
+.logRegister{
+    font-size: 18px;
+    align-self: center;
+}
 
 .logRegisterButton {
     width: 50%;
