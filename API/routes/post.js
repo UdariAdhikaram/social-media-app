@@ -1,7 +1,7 @@
+const Post = require("../models/Post");
+const User = require("../models/User"); // Import the User model
 const router = require("express").Router();
 
-router.get("/",(req,res)=>{
-    console.log("post");
 // Create a post
 router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
