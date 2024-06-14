@@ -12,6 +12,9 @@
 .topbarLeft{
     flex: 3;
 }
+.textdeco{
+    text-decoration: none;
+}
 
 .topbarCenter{
     flex: 5;
