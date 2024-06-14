@@ -1,52 +1,52 @@
 export const Users = [
     {
         id:1,
-        profilePicture: "assets/1.jpg",
+        profilePicture: "4.jpg",
         username: "Safak Kocaoglu",
     },
     {
         id:2,
-        profilePicture: "assets/2.jpg",
+        profilePicture: "2.jpg",
         username: "Janeli Shrum",
     },
     {
         id:3,
-        profilePicture: "assets/3.jpg",
+        profilePicture: "3.jpg",
         username: "Aiexa Durden",
     },
     {
         id:4,
-        profilePicture: "assets/4.jpg",
+        profilePicture: "4.jpg",
         username: "Dora Hawks",
     },
     {
         id:5,
-        profilePicture: "assets/5.jpg",
-        username: "Thomas Holden",
+        profilePicture: "5.jpg",
+        username: "Peter Holden",
     },
     {
         id:6,
-        profilePicture: "assets/6.jpeg",
+        profilePicture: "6.jpeg",
         username: "Shirleya Beauchamo",
     },
     {
         id:7,
-        profilePicture: "assets/7.jpg",
+        profilePicture: "7.jpg",
         username: "Travisiya Bennety",
     },
     {
         id:8,
-        profilePicture: "assets/8.jpg",
+        profilePicture: "8.jpg",
         username: "Kristena THomas",
     },
     {
         id:9,
-        profilePicture: "assets/9.jpg",
+        profilePicture: "9.jpg",
         username: "Lauriya Botheju",
     },
     {
         id:10,
-        profilePicture: "assets/10.jpg",
+        profilePicture: "10.jpg",
         username: "Gary Duty",
     }
 
@@ -56,7 +56,7 @@ export const Users = [
     {
         id: 1,
         desc: "Love For All, Hatred For None.",
-        photo: "assets/post1.jpg",
+        photo: "post1.jpg",
         date: "5 mins ago",
         userId: 1,
         like: 32,
@@ -66,7 +66,7 @@ export const Users = [
     {
         id: 2,
         desc: "Sweet Home.",
-        photo: "assets/post11.jpeg",
+        photo: "post11.jpeg",
         date: "15 mins ago",
         userId: 2,
         like: 27,
@@ -76,7 +76,7 @@ export const Users = [
     {
         id: 3,
         desc: "Love Nature.",
-        photo: "assets/post13.jpeg",
+        photo: "post13.jpeg",
         date: "10 mins ago",
         userId: 3,
         like: 20,
@@ -86,7 +86,7 @@ export const Users = [
     {
         id: 4,
         desc: "Beach Vibes.",
-        photo: "assets/cover2.jpg",
+        photo: "cover2.jpg",
         date: "1 hour ago",
         userId: 4,
         like: 25,
@@ -95,7 +95,7 @@ export const Users = [
 
     {
         id: 5,
-        photo: "assets/post14.webp",
+        photo: "post14.webp",
         date: "30 mins ago",
         userId: 5,
         like: 30,
@@ -105,7 +105,7 @@ export const Users = [
     {
         id: 6,
         desc: "My Art.",
-        photo: "assets/post15.jpeg",
+        photo: "post15.jpeg",
         date: "10 mins ago",
         userId: 6,
         like: 20,
@@ -115,7 +115,7 @@ export const Users = [
     {
         id: 7,
         desc: "Love Nature.",
-        photo: "assets/post16.jpeg",
+        photo: "post16.jpeg",
         date: "1 day ago",
         userId: 7,
         like: 29,
@@ -125,7 +125,7 @@ export const Users = [
     {
         id: 8,
         desc: "My Puppy.",
-        photo: "assets/post17.jpeg",
+        photo: "post17.jpeg",
         date: "20 mins ago",
         userId: 8,
         like: 10,
@@ -135,7 +135,7 @@ export const Users = [
     {
         id: 9,
         desc: "Working Time",
-        photo: "assets/post20.webp",
+        photo: "post20.webp",
         date: "45 mins ago",
         userId: 9,
         like: 27,
@@ -144,7 +144,7 @@ export const Users = [
 
     {
         id: 10,
-        photo: "assets/post19.jpeg",
+        photo: "post19.jpeg",
         date: "1 mins ago",
         userId: 10,
         like: 8,
