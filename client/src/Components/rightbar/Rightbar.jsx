@@ -2,8 +2,8 @@ import "./rightbar.css"
 import {Users} from "../../dummyData";
 import Online from "../online/Online";
 
-export default function Rightbar({profile}) {
-
+export default function Rightbar({ user }) {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const HomeRightbar = () => {
     return(
       <>
@@ -31,68 +31,68 @@ export default function Rightbar({profile}) {
         <div className="rightbarInfo">
           <div className="profileInfoItem">
             <span className="rightbarInfoKey">City:</span>
-            <span className="rightbarInfoValue">New York:</span>
+            <span className="rightbarInfoValue">{user.city}</span>
           </div>
           <div className="profileInfoItem">
             <span className="rightbarInfoKey">From:</span>
-            <span className="rightbarInfoValue">Madrid:</span>
+            <span className="rightbarInfoValue">{user.from}</span>
           </div>
           <div className="profileInfoItem">
             <span className="rightbarInfoKey">Relationship:</span>
-            <span className="rightbarInfoValue">Single:</span>
+            <span className="rightbarInfoValue">{user.relationship}</span>
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>
         <div className="rightbarFollwings">
           <div className="rightbarFollowing">
-            <img src="assets/5.jpg" alt="" className="rightFollowingImg"/>
+            <img src={`${PF}5.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Peter Holden</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src={`${PF}7.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Anna Durden</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src={`${PF}9.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Ellie Kenn</span>
+          </div>
+          <div className="rightbarFollowing">
+            <img src={`${PF}10.jpg`} alt="" className="rightFollowingImg"/>
             <span className="rightbarFollowingName">John Carter</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/7.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
+            <img src={`${PF}CurentProfile.jpeg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Ellie Carry</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/9.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
+            <img src={`${PF}feed11.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Faruk Peter</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/10.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
+            <img src={`${PF}8.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Subaki Thomas</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/CurentProfile.jpeg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
+            <img src={`${PF}feed6.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Andrew Kalo</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/feed11.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
+            <img src={`${PF}story4.jpg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Wohan Suffer</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="assets/8.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img src="assets/feed6.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img src="assets/story4.jpg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
-          </div>
-          <div className="rightbarFollowing">
-            <img src="assets/feed5.jpeg" alt="" className="rightFollowingImg"/>
-            <span className="rightbarFollowingName">John Carter</span>
+            <img src={`${PF}feed5.jpeg`} alt="" className="rightFollowingImg"/>
+            <span className="rightbarFollowingName">Melo Drew</span>
           </div>
         </div>
         </>
     );
-  }
+  };
 
   return (
     <div className="rightbar">
         <div className="rightbarWrapper">
-        {profile ? <ProfileRightbar/> : <HomeRightbar/>}
+        {user ? <ProfileRightbar/> : <HomeRightbar/>}
         </div>
     </div>
   )
