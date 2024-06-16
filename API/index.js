@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
+const PORT = 8000;
 
 dotenv.config();
 
@@ -21,19 +22,10 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
-
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postsRoute);
 
-/*app.get("/",(req,res)=>{
-  res.send("welcome to home page")
-});
-
-app.get("/users",(req,res)=>{
-  res.send("welcome to user page")
-});*/
-
-app.listen(8000,()=>{
-    console.log("Backend server is running!..")
+app.listen(PORT,()=>{
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
