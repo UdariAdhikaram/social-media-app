@@ -1,13 +1,22 @@
-import React, {useRef} from 'react';
+import React, {useContext, useRef} from 'react';
 import "./login.css"
+import {loginCall} from "../../apiCalls";
+import {AuthContext} from "../../context/AuthContext";
+import {CricularProgress} from "@mui/icons-material"
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Login() {
-const email = useRef();
-const password = useRef();
+const emailRef = useRef();
+const passwordRef = useRef();
+const {user, isFetching, error, dispatch} = useContext(AuthContext);
+
 const handleClick = (e) =>{
     e.preventDefault();
-    console.log(email);
-}
+    loginCall({ email: emailRef.current.value, 
+        password: passwordRef.current.value }, 
+        dispatch);
+};
+console.log(user)
     return (
         <div className="login">
             <div className="loginWrapper">
@@ -22,17 +31,33 @@ const handleClick = (e) =>{
                     <form className="loginBox" onSubmit={handleClick}>
                         <input
                             type="email"
-                            //ref={emailRef}
-                            placeholder="Username" required className="loginInput" ref={email}
+                            ref= {emailRef}
+                            placeholder="Username" 
+                            required 
+                            className="loginInput"
                         />
                         <input
                             type="password"
-                            //ref={passwordRef}
-                            placeholder="Password" required minLength="6" className="loginInput" ref={password}/>
-                        <button className="loginButton">Log In</button>
+                            ref= {passwordRef}
+                            placeholder="Password" 
+                            required 
+                            minLength="6" 
+                            className="loginInput"/>
+
+                        <button className="loginButton" type="submit" disabled={isFetching}>
+                            {isFetching ? <CircularProgress style={{ 
+                                color: 'white', 
+                                width: 20, 
+                                height: 20 }}/> : "Log In"}
+                        </button>
                         <span className="loginForgot">Forgot Password?</span>
                         <span className="LoginRegister">Don't have an account, Click here to</span>
-                        <button className="loginRegisterButton">Sign Up</button>
+                        <button className="loginRegisterButton">
+                            {isFetching ? <CircularProgress style={{ 
+                                color: 'white', 
+                                width: 20, 
+                                height: 20 }}/> : "Sign Up"} 
+                           </button>
                     </form>
                 </div>
             </div>
