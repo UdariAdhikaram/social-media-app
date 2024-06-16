@@ -23,33 +23,36 @@ router.post("/register", async (req,res)=>{
 
         //save user and respond
         const user = await newUser.save();
-        res.status(200).json(user);
+        return res.status(200).json(user);
         
     } catch (error) {
         console.log(error);
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 });
 
 //Login
-router.post("/login", async (req,res)=> {
+router.post("/login", async (req, res) => {
     try {
-        //email validate
+        // email validate
         const user = await User.findOne({ email: req.body.email });
-        !user && res.status(404).json("user not found");
+        if (!user) {
+            return res.status(404).json("user not found");
+        }
 
-        //password validete
+        // password validate
         const validPassword = await bcrypt.compare(req.body.password, user.password);
-        !validPassword && res.status(400).json("wrong password");
+        if (!validPassword) {
+            return res.status(400).json("wrong password");
+        }
 
-        res.status(200).json(user);
+        // If everything is valid, send the user data
+        return res.status(200).json(user);
 
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
-    
-})
-
+});
 module.exports = router
 
 /*const user = await new User({
