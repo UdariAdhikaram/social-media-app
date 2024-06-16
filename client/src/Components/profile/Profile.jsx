@@ -1,8 +1,8 @@
 import "./profile.css"
-import Feed from "../../Components/feed/Feed";
-import Rightbar from "../../Components/rightbar/Rightbar";
-import Sidebar from "../../Components/sidebar/Sidebar";
-import Topbar from "../../Components/topbar/Topbar";
+import Feed from "../feed/Feed";
+import Rightbar from "../rightbar/Rightbar";
+import Sidebar from "../sidebar/Sidebar";
+import Topbar from "../topbar/Topbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
