@@ -8,6 +8,8 @@ const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
 const PORT = 8000;
+const multer = require("multer");
+const path = require("path");
 
 dotenv.config();
 
@@ -18,6 +20,8 @@ mongoose.connect(process.env.MONGO_URL, {
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("Could not connect to MongoDB", err));
 
+  app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 //middleware
 app.use(express.json());
 app.use(helmet());
@@ -26,6 +30,24 @@ app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postsRoute);
 
+const storage = multer.diskStorage({
+  destination:(req,file,cb)=>{
+    cb(null,"public/images")
+  },
+  filename: (req,file,cb)=>{
+    cb(null,file.originalname);
+  },
+});
+
+const upload = multer();
+app.post("/api/upload", upload.single("file"), (req,res)=>{
+  try {
+    return res.status(200).json("File uploaded successfully.")
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 app.listen(PORT,()=>{
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running`);
 });
