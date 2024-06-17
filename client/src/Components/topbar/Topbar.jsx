@@ -1,8 +1,8 @@
-import "./topbar.css"
-import { Search, Person, Chat, Notifications, Logout } from "@mui/icons-material"
-import { useContext } from "react"
-import { Link } from "react-router-dom"
-import { AuthContext } from "../../context/AuthContext"
+import "./topbar.css";
+import { Search, Person, Chat, Notifications } from "@mui/icons-material";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Topbar() {
 
@@ -43,7 +43,7 @@ export default function Topbar() {
               </div>
             </div>
 
-            <Link to={"/profile/${user.username}"}>
+            <Link to={`/profile/${user.username}`}>
             <img src= 
             {user.profilePicture 
               ? PF + user.profilePicture
