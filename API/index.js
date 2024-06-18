@@ -7,9 +7,10 @@ const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const multer = require("multer");
 const path = require("path");
+
 
 dotenv.config();
 
@@ -35,11 +36,11 @@ const storage = multer.diskStorage({
     cb(null,"public/images")
   },
   filename: (req,file,cb)=>{
-    cb(null,file.originalname);
+    cb(null,req.body.name);
   },
 });
 
-const upload = multer();
+const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req,res)=>{
   try {
     return res.status(200).json("File uploaded successfully.")
@@ -49,5 +50,5 @@ app.post("/api/upload", upload.single("file"), (req,res)=>{
 })
 
 app.listen(PORT,()=>{
-  console.log(`Server is running`);
+  console.log(`Server is running on port ${PORT}`);
 });
