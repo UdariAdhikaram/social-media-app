@@ -7,10 +7,12 @@ const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
+
+const cors = require('cors');
+
 const PORT = process.env.PORT || 8000;
 const multer = require("multer");
 const path = require("path");
-
 
 dotenv.config();
 
@@ -27,6 +29,10 @@ mongoose.connect(process.env.MONGO_URL, {
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+
+
+app.use(cors());
+
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postsRoute);
