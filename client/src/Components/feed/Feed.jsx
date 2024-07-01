@@ -11,17 +11,27 @@ export default function Feed({ username }) {
 
   useEffect(() => {
     const fetchPosts = async () => {
-        const res = username
-          ? await axios.get("/posts/profile/"+username)
-          : await axios.get("/posts/timeline/"+user._id);
-        setPosts(res.data.sort((p1,p2)=>{
-          return new Date(p2.createdAt) - new Date(p1.createdAt);
-        })
+      try {
+        const endpoint = username
+          ? `/posts/profile/${username}`
+          : `/posts/timeline/${user._id}`;
+  
+        const res = await axios.get(endpoint);
+        console.log("Response data:", res.data); // Log response data for debugging
+  
+        // Sort posts by createdAt descending
+        const sortedPosts = res.data.sort((p1, p2) =>
+          new Date(p2.createdAt) - new Date(p1.createdAt)
         );
+        setPosts(sortedPosts);
+      } catch (error) {
+        console.error("Error fetching posts:", error); // Log any errors for debugging
+      }
     };
+  
     fetchPosts();
   }, [username, user._id]);
-
+  
   return (
     <div className="feed">
       <div className="feedWrapper">
