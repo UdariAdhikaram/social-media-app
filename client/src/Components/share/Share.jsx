@@ -27,15 +27,13 @@ const submitHandler = async (e) =>{
             await axios.post("/upload",data);
         } catch (error) {
             console.log(error);
-        }
+}
     }
 
     try {
         await axios.post("/posts", newPost);
         window.location.reload();
-    } catch (error) {
-        
-    }
+    } catch (error) {}
 };
 
 
