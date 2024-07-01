@@ -7,7 +7,6 @@ const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
-const PORT = process.env.PORT || 8000;
 const multer = require("multer");
 const path = require("path");
 
@@ -21,7 +20,7 @@ mongoose.connect(process.env.MONGO_URL, {
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("Could not connect to MongoDB", err));
 
-  app.use("/images", express.static(path.join(__dirname, "public/images")));
+  app.use("/images", express.static(path.join(__dirname, "/public/images")));
 
 //middleware
 app.use(express.json());
@@ -36,7 +35,7 @@ const storage = multer.diskStorage({
     cb(null,"public/images")
   },
   filename: (req,file,cb)=>{
-    cb(null,req.body.name);
+    cb(null,file.originalname);
   },
 });
 
@@ -49,6 +48,6 @@ app.post("/api/upload", upload.single("file"), (req,res)=>{
   }
 })
 
-app.listen(PORT,()=>{
-  console.log(`Server is running on port ${PORT}`);
+app.listen(8000,()=>{
+  console.log(`Backend Server is running!`);
 });
