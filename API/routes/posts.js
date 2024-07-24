@@ -2,6 +2,7 @@ const express = require("express");
 const Post = require("../models/Post");
 const User = require("../models/User");
 const router = express.Router();
+const { ObjectId } = require('mongodb');
 
 // Create a post
 router.post("/", async (req, res) => {
@@ -77,11 +78,13 @@ router.get("/:id", async (req, res) => {
 
 // Get timeline posts
 router.get("/timeline/:userId", async (req, res) => {
+    // console.log(req.params.userId);
     try {
-        const currentUser = await User.findById(req.params.userId);
-        const userPosts = await Post.find({ userId: currentUser._id });
+        const currentUser = await User.find({ _id: new ObjectId('666c5057969a79f83d730852')});
+        console.log(currentUser.followings);
+        const userPosts = await Post.find({ userId: req.params.userId });
         const friendPosts = await Promise.all(
-            currentUser.followings.map((friendID) => Post.find({ userId: friendID }))
+            currentUser.followings?.map((friendID) => Post.find({ userId: friendID }))
         );
         res.status(200).json(userPosts.concat(...friendPosts));
     } catch (error) {

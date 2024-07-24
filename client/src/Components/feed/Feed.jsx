@@ -14,7 +14,7 @@ export default function Feed({ username }) {
       try {
         const endpoint = username
           ? `/posts/profile/${username}`
-          : `/posts/timeline/${user._id}`;
+          : `api/posts/timeline/${user._id}`;
   
         const res = await axios.get(endpoint);
         console.log("Response data:", res.data); // Log response data for debugging
